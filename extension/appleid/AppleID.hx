@@ -1,6 +1,8 @@
 package extension.appleid;
 
+#if ios
 import extension.appleid.ios.AppleIdCFFI;
+#end
 
 import extension.util.task.*;
 
@@ -51,7 +53,7 @@ class AppleID extends TaskExecutor {
 			addTask(new CallStrTask(onError, error));
 		}
 
-		#if (android || ios)
+		#if (ios)
 
 		AppleIdCFFI.setOnLoginSuccessCallback(fOnComplete);
 		AppleIdCFFI.setOnLoginFailedCallback(fOnFailed);

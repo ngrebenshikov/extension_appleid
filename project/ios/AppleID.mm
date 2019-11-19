@@ -13,7 +13,9 @@ namespace extension_appleid {
 	}
 
 	void login() {
+		NSLog(@"%s", __FUNCTION__);
 	    if (@available(iOS 13.0, *)) {
+	    	NSLog(@"iOS > 13.0");
 	        // A mechanism for generating requests to authenticate users based on their Apple ID.
 	        ASAuthorizationAppleIDProvider *appleIDProvider = [ASAuthorizationAppleIDProvider new];
 	        
@@ -37,6 +39,7 @@ namespace extension_appleid {
 	}
 
 	bool available() {
+		NSLog(@"%s", __FUNCTION__);
 		if (@available(iOS 13.0, *)) {
 			return true;
 		} else {
