@@ -8,9 +8,9 @@ class AppleIdCFFI {
 
 	@CPP public static function init() {}
 	@CPP public static function login() {}
-	@CPP public static function available() {}
+	@CPP public static function available(): Bool {}
 
-	@CPP public static function setOnLoginSuccessCallback(f : Void->Void);
+	@CPP public static function setOnLoginSuccessCallback(f : String->String->String->String->Void);
 	@CPP public static function setOnLoginFailedCallback(f : Void->Void);
 	@CPP public static function setOnLoginErrorCallback(f : String->Void);
 
