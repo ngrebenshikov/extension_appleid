@@ -1,0 +1,5 @@
+*.class
+project/obj
+ndll/iPhone/*.hash
+*.zip
+ndll
