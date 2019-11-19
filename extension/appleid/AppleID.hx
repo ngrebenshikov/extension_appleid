@@ -1,6 +1,6 @@
 package extension.appleid;
 
-import extension.appleid.ios.VKCFFI;
+import extension.appleid.ios.AppleIdCFFI;
 
 import extension.util.task.*;
 
@@ -32,15 +32,15 @@ class AppleID extends TaskExecutor {
 	}
 
 	public function login(
-		onComplete : Void->Void,
+		onComplete : String->String->String->String->Void,
 		onFailed : Void->Void,
 		onError : String->Void
 	) {
 
 		trace("AppleID.login");
 
-		var fOnComplete = function() {
-			addTask(new CallTask(onComplete));
+		var fOnComplete = function(userId, email, firstName, lastName) {
+			addTask(new CallStr4Task(onComplete, userId, email, firstName, lastName));
 		}
 
 		var fOnFailed = function() {
